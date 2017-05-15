@@ -9,41 +9,33 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
 
-#### Add file .sql in phpmyadmin
-
 
 #### To create a admin:
 
-U have to create an account with 
+U have to connect an account with 
 
-"remcos75" as username=>"pseudo"  
-And "remcos75" as password=>"mot de passe"
+"cosinus94" as username=>"pseudo"  
+And "passwordCOS9154" as password=>"mot de passe"
 
 
 #### Create a directory config, with a file config.yml  
 
  routes:  
-     home: 'Default:home'  
-     about: 'Default:about'  
-     login: 'Security:login'  
-     logout: 'Security:logout'  
-     register: 'Security:register'  
-     profil: 'Default:profil'  
-     saison: 'Default:saison'  
-     add_article: 'Article:add_article'  
-     edit_article: 'Article:edit_article'  
-     read_article: 'Default:read_article'  
-     usersprofil: 'Default:usersprofil'  
-     admin: 'Default:admin'  
-     admin_user: 'Default:admin_user'  
-     admin_article: 'Default:admin_article'   
-     admin_comment: 'Default:admin_comment'  
-     error:  'Default:error'
- 
- defaut_route: 'home'
- 
- db_config:  
-     name: 'twd2'  
-     host: 'localhost'  
-     user: 'root'  
-     pass: 'root'  
+    home: 'Default:home'
+    login: 'Security:login'
+    logout: 'Security:logout'
+    register: 'Security:register'
+    admin: 'Default:admin'
+    admin_contributeur: 'Default:admin_contributeur'
+    admin_responsable: 'Default:admin_responsable'
+    error: 'Default:error'
+
+
+
+defaut_route: 'login'
+
+db_config:
+    name: 'test_eocene'
+    host: 'localhost'
+    user: 'root'
+    pass: ''
