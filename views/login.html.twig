@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <section class="login">
+        <div class="place_login_form">
+            <div id="error-block-login"></div>
+            <div id="success-block-login"></div>
+            <form class="position_form_login" action="?action=login" name="login-form" method="POST">
+                <input type="text" name="username" placeholder="Pseudo *"><br>
+                <input type="password" name="password" placeholder="Mot de Passe *"><br>
+                <input type="submit" value="Se connecter">
+            </form>
+        </div>
+        <div>
+            <a href="?action=register">
+                <div class="button_logToREG">Pas encore de compte, PAR ICI !!</div>
+            </a>
+        </div>
+    </section>
+
+{% endblock %}

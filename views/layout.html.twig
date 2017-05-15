@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=0.2">
+        <title>The Walking Dead</title>
+        <link rel="icon" type="image/png" href="web/img/favicone.png">
+        <link rel="stylesheet" href="web/style/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="topnav" id="myTopnav">
+                <a class="hover_logo" href="?action=home">Test eocene</a>
+                <a class="replace_nav" href="?action=home">Accueil</a>
+                {% if userIsConnect is not empty %}
+                    <a href="?action=logout">Déconnexion</a>
+                {% endif %}
+                {% if userIsConnect is empty %}
+                    <a href="?action=login">Se connecter</a>
+                {% endif %}
+            </div>
+        </header>
+        <main>
+            {% if error is defined and error is not empty %}
+                <p class="error">Error : {{ error }}</p>
+            {% endif %}
+            {% if error is defined and userArticles is not empty %}
+                <p class="userArticles">Error : {{ userAticles }}</p>
+            {% endif %}
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>

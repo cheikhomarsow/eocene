@@ -1,0 +1,10 @@
+*~
+.#*
+#*#
+/vendor
+/cache
+/.idea
+/config
+/node_modules
+/uploads
+!/uploads.gitkeep
