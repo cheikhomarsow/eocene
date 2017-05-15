@@ -56,6 +56,30 @@
       <div class="right_part">
          <h1>Site administration</h1>
          <p class="selection">Dashboard</p>
+         <table>
+            <tr>
+               <th>Pesudo</th>
+               <th>Firstname</th>
+               <th>Lastname</th>
+               <th class="size_delete">Supprimer</th>
+            </tr>
+             {% for user in users %}
+                <tr>
+                   <td>{{ user['username'] }}</td>
+                   <td>{{ user['firstname'] }}</td>
+                   <td>{{ user['lastname'] }}</td>
+                   <td>
+                      <label for="{{ user['id'] }}">
+                         <img class="delete" src="web/img/delete.png" alt="delete user">
+                      </label>
+                      <form class="none" action="?action=admin_user" method="POST">
+                         <input type="text" name="id" value="{{ user['id'] }}">
+                         <input type="submit" id="{{ user['id'] }}" value="Delete">
+                      </form>
+                   </td>
+                </tr>
+             {% endfor %}
+         </table>
          <div class="three_view_here">
              {% if error is defined and error is not empty %}
                 <p class="error">Error : {{ error }}</p>

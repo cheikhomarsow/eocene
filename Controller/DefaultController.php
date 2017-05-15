@@ -11,7 +11,7 @@ class DefaultController extends BaseController
     public function homeAction()
     {
 
-        $manager = UserManager::getInstance();
+
 
         echo $this->renderView(        'home.html.twig');
     }
@@ -20,8 +20,11 @@ class DefaultController extends BaseController
 
     public function adminAction()
     {
+        $manager = UserManager::getInstance();
         if (!empty($_SESSION['user_id']) && $_SESSION['user_username'] == 'cosinus94'){
-            echo $this->renderView('admin.html.twig');
+
+            $users = $manager->getAllUsers();
+            echo $this->renderView('admin.html.twig',['users'=>$users]);
         }
         else
             $this->redirect('login');
@@ -30,13 +33,12 @@ class DefaultController extends BaseController
     public function admin_responsableAction()
     {
         if (!empty($_SESSION['user_id']) && $_SESSION['user_username'] == 'cosinus94') {
-            $manager = UserManager::getInstance();
-            $users = $manager->getAllUsersWithoutAdmin();
+
+
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location:?action=admin_responsable');
             }
-            echo $this->renderView('admin_responsable.html.twig',
-                                        ['users' => $users]);
+            echo $this->renderView('admin_responsable.html.twig');
         }
         else
             $this->redirect('login');
